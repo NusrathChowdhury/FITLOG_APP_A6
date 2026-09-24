@@ -1,16 +1,12 @@
+import Image from "next/image";
+import logo from "@/assets/logo.png";
+
 const Navber = () => {
   return (
     <nav className="w-full border-b border-white/10 bg-[#0B0D0C]">
-      <div className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
+      <div className="relative mx-auto flex h-[76px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
 
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          {/* <Image></Image> */}
-
-          <span className="text-xl font-black tracking-[-0.04em] text-white">
-            FITLOG
-          </span>
-        </div>
+        {/* Logo */} <div className="flex items-center gap-3"> <div className="relative h-10 w-10"> <Image src={logo} alt="FitLog" fill className="object-contain" /> </div> <span className="text-xl font-black tracking-[-0.04em] text-white"> FITLOG </span> </div>
 
         {/* Navigation */}
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
@@ -28,6 +24,7 @@ const Navber = () => {
 
         {/* Right Badges */}
         <div className="flex items-center gap-2">
+
           {/* Plan */}
           <div className="flex items-center gap-2 rounded-full bg-[#CCFF00] px-4 py-2">
             <span className="text-xs font-black uppercase tracking-wide text-black">
@@ -49,6 +46,7 @@ const Navber = () => {
               0
             </span>
           </div>
+
         </div>
 
       </div>
