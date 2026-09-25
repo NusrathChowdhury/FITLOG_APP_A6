@@ -1,51 +1,82 @@
-import Image from "next/image";
-import logo from "@/assets/logo.png";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useWorkout } from "@/context/WorkoutContext";
 
 const Navber = () => {
+  const pathname = usePathname();
+
+  const {
+    todaysPlan,
+    savedWorkouts,
+  } = useWorkout();
+
   return (
-    <nav className="w-full border-b border-white/10 bg-[#0B0D0C]">
-      <div className="relative mx-auto flex h-[76px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
+    <nav className="border-b border-white/10 bg-[#0B0D0C]">
+      <div className="navbar mx-auto max-w-7xl px-4 sm:px-6">
 
-        {/* Logo */} <div className="flex items-center gap-3"> <div className="relative h-10 w-10"> <Image src={logo} alt="FitLog" fill className="object-contain" /> </div> <span className="text-xl font-black tracking-[-0.04em] text-white"> FITLOG </span> </div>
-
-        {/* Navigation */}
-        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
-          <span className="relative py-2 text-sm font-bold uppercase tracking-wide text-white">
-            Workout
-
-            {/* Active underline */}
-            <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-[#CCFF00]" />
-          </span>
-
-          <span className="py-2 text-sm font-bold uppercase tracking-wide text-white/50">
-            My Plan
-          </span>
+        {/* Logo */}
+        <div className="navbar-start">
+          <Link
+            href="/"
+            className="text-xl font-black tracking-wider text-white"
+          >
+            FITLOG
+          </Link>
         </div>
 
-        {/* Right Badges */}
-        <div className="flex items-center gap-2">
+        {/* Navigation */}
+        <div className="navbar-center hidden lg:flex">
+          <div className="flex items-center gap-8">
+            <Link
+              href="/"
+              className={`font-bold ${
+                pathname === "/"
+                  ? "text-[#CCFF00]"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              Workout
+            </Link>
+
+            <Link
+              href="/my-plan"
+              className={`font-bold ${
+                pathname === "/my-plan"
+                  ? "text-[#CCFF00]"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              My Plan
+            </Link>
+          </div>
+        </div>
+
+        {/* Badges */}
+        <div className="navbar-end flex gap-2">
 
           {/* Plan */}
-          <div className="flex items-center gap-2 rounded-full bg-[#CCFF00] px-4 py-2">
-            <span className="text-xs font-black uppercase tracking-wide text-black">
-              Plan
+          <Link
+            href="/my-plan"
+            className="flex items-center gap-2 rounded-full bg-[#CCFF00] px-4 py-2 text-sm font-black text-black"
+          >
+            Plan
+            <span className="rounded-full bg-black px-2 py-0.5 text-xs text-[#CCFF00]">
+              {todaysPlan.length}
             </span>
-
-            <span className="text-xs font-black text-black">
-              0
-            </span>
-          </div>
+          </Link>
 
           {/* Saved */}
-          <div className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2">
-            <span className="text-xs font-black uppercase tracking-wide text-white">
-              Saved
+          <Link
+            href="/my-plan"
+            className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-sm font-black text-white"
+          >
+            Saved
+            <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs">
+              {savedWorkouts.length}
             </span>
-
-            <span className="text-xs font-black text-white">
-              0
-            </span>
-          </div>
+          </Link>
 
         </div>
 

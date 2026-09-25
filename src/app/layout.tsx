@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navber from "@/components/shared/Navber";
+import { WorkoutProvider } from "@/context/WorkoutContext";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "FitLog",
@@ -15,8 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navber />
-        {children}
+        <WorkoutProvider>
+          <Navber />
+          {children}
+           <ToastContainer />
+        </WorkoutProvider>
       </body>
     </html>
   );

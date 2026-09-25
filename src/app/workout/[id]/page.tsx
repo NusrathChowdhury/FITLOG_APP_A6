@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getWorkouts } from "@/lib/apps";
+import WorkoutActions from "@/components/workout/WorkoutActions";
 
 const WorkoutDetails = async ({
   params,
@@ -98,6 +99,7 @@ const WorkoutDetails = async ({
                 <span className="text-xs text-white/50 sm:text-sm">
                   EQUIPMENT
                 </span>
+
                 <span className="text-right text-sm font-semibold text-white">
                   {workout.equipment}
                 </span>
@@ -107,6 +109,7 @@ const WorkoutDetails = async ({
                 <span className="text-xs text-white/50 sm:text-sm">
                   DIFFICULTY
                 </span>
+
                 <span className="text-right text-sm font-semibold text-white">
                   {workout.difficulty}
                 </span>
@@ -116,6 +119,7 @@ const WorkoutDetails = async ({
                 <span className="text-xs text-white/50 sm:text-sm">
                   SETS
                 </span>
+
                 <span className="text-sm font-semibold text-white">
                   {workout.sets}
                 </span>
@@ -125,6 +129,7 @@ const WorkoutDetails = async ({
                 <span className="text-xs text-white/50 sm:text-sm">
                   REPS
                 </span>
+
                 <span className="text-sm font-semibold text-white">
                   {workout.reps}
                 </span>
@@ -134,6 +139,7 @@ const WorkoutDetails = async ({
                 <span className="text-xs text-white/50 sm:text-sm">
                   DURATION
                 </span>
+
                 <span className="text-sm font-semibold text-white">
                   {workout.duration} min
                 </span>
@@ -143,6 +149,7 @@ const WorkoutDetails = async ({
                 <span className="text-xs text-white/50 sm:text-sm">
                   CALORIES
                 </span>
+
                 <span className="text-sm font-semibold text-white">
                   {workout.caloriesBurned} kcal
                 </span>
@@ -152,6 +159,7 @@ const WorkoutDetails = async ({
                 <span className="text-xs text-white/50 sm:text-sm">
                   RATING
                 </span>
+
                 <span className="text-sm font-semibold text-[#CCFF00]">
                   ★ {workout.rating}
                 </span>
@@ -185,17 +193,7 @@ const WorkoutDetails = async ({
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col gap-3 sm:flex-row lg:mt-auto">
-
-            <button className="btn min-h-12 flex-1 rounded-full border-0 bg-[#CCFF00] font-black uppercase text-black hover:bg-[#CCFF00]">
-              ＋ Add to today&apos;s plan
-            </button>
-
-            <button className="btn min-h-12 flex-1 rounded-full border border-white/20 bg-transparent font-black uppercase text-white hover:border-[#CCFF00] hover:bg-transparent hover:text-[#CCFF00]">
-              ♡ Save for later
-            </button>
-
-          </div>
+          <WorkoutActions workout={workout} />
 
         </div>
       </div>
