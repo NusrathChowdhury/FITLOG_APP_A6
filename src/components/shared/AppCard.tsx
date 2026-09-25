@@ -29,7 +29,7 @@ const AppCard = ({ workout }: AppCardProps) => {
             {workout.muscleGroups.map((muscle) => (
               <span
                 key={muscle}
-                className="rounded-full border border-[#CCFF00]/40 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#CCFF00]"
+                className="rounded-full bg-[#CCFF00] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-black"
               >
                 {muscle}
               </span>

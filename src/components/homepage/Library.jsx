@@ -1,12 +1,12 @@
 import React from 'react';
 import AppCard from '../shared/AppCard';
+import { getWorkouts } from "@/lib/apps";
 
 const Library = async () => {
-    const res = await fetch('http://localhost:3000/data.json');
-    const data = await res.json();
-
+    
+const data = await getWorkouts();
     return (
-        <div className="my-[80px] bg-[#0B0D0C] px-6">
+        <div className="bg-[#0B0D0C] px-6 pt-[60px] pb-[80px]">
             <div className="mx-auto max-w-7xl">
 
                 <div className="space-y-4 text-left">
