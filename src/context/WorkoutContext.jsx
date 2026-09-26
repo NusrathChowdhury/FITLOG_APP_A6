@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const WorkoutContext = createContext();
@@ -8,6 +8,37 @@ const WorkoutContext = createContext();
 export const WorkoutProvider = ({ children }) => {
   const [todaysPlan, setTodaysPlan] = useState([]);
   const [savedWorkouts, setSavedWorkouts] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Load data from localStorage
+  useEffect(() => {
+    const savedPlan = localStorage.getItem("fitlog-plan");
+    const savedList = localStorage.getItem("fitlog-saved");
+
+    if (savedPlan) {
+      setTodaysPlan(JSON.parse(savedPlan));
+    }
+
+    if (savedList) {
+      setSavedWorkouts(JSON.parse(savedList));
+    }
+
+    setIsLoaded(true);
+  }, []);
+
+  // Save today's plan
+  useEffect(() => {
+    if (isLoaded) {
+      localStorage.setItem("fitlog-plan", JSON.stringify(todaysPlan));
+    }
+  }, [todaysPlan, isLoaded]);
+
+  // Save saved workouts
+  useEffect(() => {
+    if (isLoaded) {
+      localStorage.setItem("fitlog-saved", JSON.stringify(savedWorkouts));
+    }
+  }, [savedWorkouts, isLoaded]);
 
   const addToTodaysPlan = (workout) => {
     const alreadyAdded = todaysPlan.some(

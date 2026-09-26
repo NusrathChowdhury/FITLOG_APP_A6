@@ -1,16 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useWorkout } from "@/context/WorkoutContext";
+import logo from "@/assets/logo.png";
 
 const Navber = () => {
   const pathname = usePathname();
 
-  const {
-    todaysPlan,
-    savedWorkouts,
-  } = useWorkout();
+  const { todaysPlan, savedWorkouts } = useWorkout();
 
   return (
     <nav className="border-b border-white/10 bg-[#0B0D0C]">
@@ -18,11 +17,18 @@ const Navber = () => {
 
         {/* Logo */}
         <div className="navbar-start">
-          <Link
-            href="/"
-            className="text-xl font-black tracking-wider text-white"
-          >
-            FITLOG
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src={logo}
+              alt="FitLog Logo"
+              width={42}
+              height={42}
+              className="h-10 w-10 object-contain"
+            />
+
+            <span className="text-xl font-black tracking-wider text-white">
+              FITLOG
+            </span>
           </Link>
         </div>
 
@@ -31,7 +37,7 @@ const Navber = () => {
           <div className="flex items-center gap-8">
             <Link
               href="/"
-              className={`font-bold ${
+              className={`font-bold transition ${
                 pathname === "/"
                   ? "text-[#CCFF00]"
                   : "text-white/60 hover:text-white"
@@ -42,7 +48,7 @@ const Navber = () => {
 
             <Link
               href="/my-plan"
-              className={`font-bold ${
+              className={`font-bold transition ${
                 pathname === "/my-plan"
                   ? "text-[#CCFF00]"
                   : "text-white/60 hover:text-white"
@@ -53,33 +59,34 @@ const Navber = () => {
           </div>
         </div>
 
-        {/* Badges */}
+        {/* Status Badges */}
         <div className="navbar-end flex gap-2">
 
-          {/* Plan */}
+          {/* Plan Badge */}
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 rounded-full bg-[#CCFF00] px-4 py-2 text-sm font-black text-black"
+            className="flex items-center gap-2 rounded-full bg-[#CCFF00] px-4 py-2 text-sm font-black text-black transition hover:scale-105"
           >
-            Plan
+            <span>Plan</span>
+
             <span className="rounded-full bg-black px-2 py-0.5 text-xs text-[#CCFF00]">
               {todaysPlan.length}
             </span>
           </Link>
 
-          {/* Saved */}
+          {/* Saved Badge */}
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-sm font-black text-white"
+            className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-sm font-black text-white transition hover:border-[#CCFF00] hover:text-[#CCFF00]"
           >
-            Saved
+            <span>Saved</span>
+
             <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs">
               {savedWorkouts.length}
             </span>
           </Link>
 
         </div>
-
       </div>
     </nav>
   );

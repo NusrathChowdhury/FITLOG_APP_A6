@@ -10,28 +10,29 @@ const Banner = () => {
         {/* Left Content */}
         <div className="space-y-6">
 
-          {/* Small Heading */}
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#CCFF00]">
             WORKOUT LIBRARY
           </p>
 
-          {/* Main Heading */}
           <h2 className="max-w-xl text-3xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
             TRAIN WITH INTENT.
             <br />
             LOG EVERY SET.
           </h2>
 
-          {/* Description */}
           <p className="max-w-lg text-base leading-7 text-white/60 sm:text-lg">
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
             into today&apos;s plan, and watch the week&apos;s work add up.
           </p>
 
-          {/* Button */}
-          <button className="rounded-full bg-[#CCFF00] px-6 py-3 text-sm font-black uppercase tracking-wide text-black transition duration-200 hover:scale-105 hover:bg-[#d8ff4d]">
+          {/* Browse Workouts */}
+          <a
+            href="#library"
+            className="inline-flex items-center gap-2 rounded-full bg-[#CCFF00] px-6 py-3 text-sm font-black uppercase tracking-wide text-black transition duration-200 hover:scale-105 hover:bg-[#d8ff4d]"
+          >
             BROWSE WORKOUTS
-          </button>
+            <span className="text-lg">→</span>
+          </a>
         </div>
 
         {/* Right Image */}
