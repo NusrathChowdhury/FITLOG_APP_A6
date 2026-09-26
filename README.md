@@ -36,7 +36,7 @@ FitLog uses the following API to load workout data.
 
 ### Deployment Link:
 
-https://fitlog-app-a6-git-main-fnc9.vercel.app/
+https://fitlog-app-a6.vercel.app/
 
 
 
