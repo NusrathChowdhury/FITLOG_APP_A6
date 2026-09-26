@@ -34,14 +34,11 @@ FitLog is a modern and responsive workout library and workout planning web appli
 
 FitLog uses the following API to load workout data.
 
-### All Workouts
+### Deployment Link:
 
-https://api.abcz.workers.dev/api/fitlog
+https://fitlog-app-a6-git-main-fnc9.vercel.app/
 
-### Single Workout
 
-https://api.abcz.workers.dev/api/fitlog/:id](https://fitlog-app-a6-git-main-fnc9.vercel.app/)
-## Pages
 
 ### Home Page
 
