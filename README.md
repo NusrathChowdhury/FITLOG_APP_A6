@@ -36,12 +36,11 @@ FitLog uses the following API to load workout data.
 
 ### All Workouts
 
-...
+https://api.abcz.workers.dev/api/fitlog
 
 ### Single Workout
 
-...
-
+https://api.abcz.workers.dev/api/fitlog/:id
 ## Pages
 
 ### Home Page
