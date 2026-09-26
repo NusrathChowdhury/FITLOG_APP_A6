@@ -40,7 +40,7 @@ https://api.abcz.workers.dev/api/fitlog
 
 ### Single Workout
 
-https://api.abcz.workers.dev/api/fitlog/:id
+https://api.abcz.workers.dev/api/fitlog/:id](https://fitlog-app-a6-git-main-fnc9.vercel.app/)
 ## Pages
 
 ### Home Page
