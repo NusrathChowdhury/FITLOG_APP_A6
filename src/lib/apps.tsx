@@ -1,11 +1,31 @@
 import { Workout } from "@/types/app.type";
 
 export const getWorkouts = async (): Promise<Workout[]> => {
-  const res = await fetch(
-    "https://api.abcz.workers.dev/api/fitlog"
-  );
+  try {
+    const res = await fetch(
+      "https://api.abcz.workers.dev/api/fitlog",
+      {
+        cache: "no-store",
+      }
+    );
 
-  const data = await res.json();
+    if (!res.ok) {
+      throw new Error("API unavailable");
+    }
 
-  return data;
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    console.log("API unavailable. Using local data.");
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/data.json`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    return res.json();
+  }
 };
