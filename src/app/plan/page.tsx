@@ -1,6 +1,7 @@
 "use client";
 
 import { useWorkout } from "@/context/WorkoutContext";
+import { Workout } from "@/types/app.type";
 import Link from "next/link";
 
 const MyPlanPage = () => {
@@ -37,7 +38,7 @@ const MyPlanPage = () => {
             </div>
           ) : (
             <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {todaysPlan.map((workout) => (
+              {todaysPlan.map((workout: Workout) => (
                 <div
                   key={workout.id}
                   className="rounded-2xl border border-white/10 bg-[#222630] p-5"
@@ -85,7 +86,7 @@ const MyPlanPage = () => {
             </div>
           ) : (
             <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {savedWorkouts.map((workout) => (
+              {savedWorkouts.map((workout: Workout) => (
                 <div
                   key={workout.id}
                   className="rounded-2xl border border-white/10 bg-[#222630] p-5"
